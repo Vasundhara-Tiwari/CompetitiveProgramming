@@ -1,6 +1,5 @@
 package recursion;
 
-
 //program to print all possible paths from starting cell of a matrix to ending cell
 public class MazePath {
     public static void main(String[] args) {
