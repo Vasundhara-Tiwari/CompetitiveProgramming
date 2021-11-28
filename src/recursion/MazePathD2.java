@@ -3,11 +3,9 @@ package recursion;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//program to print all possible paths from starting cell of a matrix to ending cell
-//only horizontal and vertical moves allowed
-public class MazePath {
+public class MazePathD2 {
+    static int count = 0;
     static ArrayList<String> al = new ArrayList<>();
-    static int count=0;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int row = scanner.nextInt();
@@ -28,9 +26,10 @@ public class MazePath {
         if(currentRow >= endRow || currentColumn >= endColumn){
             return;
         }
+        mazePath(currentRow + 1, currentColumn, endRow, endColumn, ans + "V");
         mazePath(currentRow, currentColumn+1, endRow,endColumn, ans+"H");
-        mazePath(currentRow+1, currentColumn, endRow,endColumn, ans+"V");
-
-
+        if(currentRow==currentColumn) {
+            mazePath(currentRow+1, currentColumn+1, endRow,endColumn, ans+"D");
+        }
     }
 }
